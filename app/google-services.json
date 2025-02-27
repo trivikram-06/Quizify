@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "3285897954",
+    "project_id": "vit-quiz-app",
+    "storage_bucket": "vit-quiz-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:3285897954:android:24630758f63ee0bf0104bb",
+        "android_client_info": {
+          "package_name": "com.example.vitquizapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKcdQopjdZ9RNm3P8HvkEZcdM47m3GQ9Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
