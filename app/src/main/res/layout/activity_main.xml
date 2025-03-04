@@ -5,23 +5,20 @@
     android:orientation="vertical"
     android:padding="20dp">
 
-    <com.google.android.material.button.MaterialButton
-        android:text="Start Quiz"
-        style="@style/Widget.MaterialComponents.Button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-
     <TextView
         android:text="Welcome to VIT Quiz App"
         android:textSize="22sp"
         android:textStyle="bold"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"/>
 
     <Button
         android:id="@+id/startButton"
-        android:text="Start Quiz"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="Start Quiz"
+        android:padding="10dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColor="@color/white"/>
 </LinearLayout>

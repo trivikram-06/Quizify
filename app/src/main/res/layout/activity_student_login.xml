@@ -2,69 +2,50 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
     android:orientation="vertical"
+    android:padding="20dp"
     android:gravity="center">
 
     <TextView
-        android:id="@+id/loginTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login to VIT Quiz App"
-        android:textSize="22sp"
+        android:text="Student Login"
+        android:textSize="24sp"
         android:textStyle="bold"
-        android:gravity="center"
+        android:textColor="@color/black"
         android:layout_marginBottom="20dp"/>
 
-    <!-- Email Input -->
     <EditText
         android:id="@+id/loginEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Email"
-        android:inputType="textEmailAddress"
-        android:padding="10dp"/>
+        android:inputType="textEmailAddress"/>
 
-    <!-- Password Input -->
     <EditText
         android:id="@+id/loginPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Password"
-        android:inputType="textPassword"
-        android:padding="10dp"
-        android:layout_marginTop="10dp"/>
+        android:inputType="textPassword"/>
 
-    <!-- Login as Student Button -->
     <Button
         android:id="@+id/loginStudentButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Login as Student"
-        android:layout_marginTop="20dp"
         android:backgroundTint="@color/blue"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        android:layout_marginTop="10dp"/>
 
-    <!-- Login as Faculty Button -->
-    <Button
-        android:id="@+id/loginFacultyButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Login as Faculty"
-        android:layout_marginTop="10dp"
-        android:backgroundTint="@color/blue"
-        android:textColor="@color/white"/>
-
-    <!-- Signup Redirect -->
     <TextView
         android:id="@+id/signupRedirect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New user? Sign Up"
-        android:textSize="16sp"
+        android:text="New User? Sign up here"
         android:textColor="@color/black"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:padding="10dp"/>
+        android:layout_marginTop="10dp"
+        android:clickable="true"
+        android:focusable="true"/>
 
 </LinearLayout>

@@ -28,7 +28,7 @@
             android:name=".activities.LoginActivity"
             android:exported="true"/>
 
-        <!-- Signup Activity -->
+        <!-- Signup Activity (Fixed Duplicate Entry) -->
         <activity
             android:name=".activities.SignupActivity"
             android:exported="true"/>
@@ -41,9 +41,7 @@
         <activity android:name=".activities.ResultActivity" android:exported="false"/>
         <activity android:name=".activities.FacultyDashboard" android:exported="false"/>
         <activity android:name=".activities.CreateQuizActivity" android:exported="false"/>
-        <activity android:name=".activities.SignupActivity" android:exported="true"/>
-        <activity android:name=".activities.ViewReportsActivity"/>
-
+        <activity android:name=".activities.ViewReportsActivity" android:exported="false"/>
 
     </application>
 </manifest>

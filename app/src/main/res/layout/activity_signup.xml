@@ -5,28 +5,33 @@
     android:gravity="center"
     android:padding="20dp">
 
-    <EditText
-        android:id="@+id/signupEmail"
-        android:hint="Enter Email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    <EditText
-        android:id="@+id/signupPassword"
-        android:hint="Enter Password"
-        android:inputType="textPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
+    <!-- Signup Buttons -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/signupStudentButton"
-        android:text="Sign Up as Student"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="Signup as Student"
+        android:backgroundTint="@color/blue"
+        android:textColor="@color/white"
+        android:layout_marginBottom="10dp"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/signupFacultyButton"
-        android:text="Sign Up as Faculty"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="Signup as Faculty"
+        android:backgroundTint="@color/blue"
+        android:textColor="@color/white"
+        android:layout_marginBottom="20dp"/>
+    <Button
+        android:id="@+id/signupButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Signup"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColor="@android:color/white"
+        android:padding="10dp"/>
+
+
+
 </LinearLayout>
