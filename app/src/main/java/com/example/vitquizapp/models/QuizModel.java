@@ -1,16 +1,16 @@
 package com.example.vitquizapp.models;
 
-import com.example.vitquizapp.models.Question;
+import com.example.vitquizapp.models.QuestionModel;
 
 import java.util.List;
 
 public class QuizModel {
     public String title;
-    public List<Question> questions;
+    public List<QuestionModel> questions;
 
     public QuizModel() { }
 
-    public QuizModel(String title, List<Question> questions) {
+    public QuizModel(String title, List<QuestionModel> questions) {
         this.title = title;
         this.questions = questions;
     }

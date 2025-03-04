@@ -6,30 +6,11 @@
     android:gravity="center"
     android:padding="20dp">
 
-    <!-- Display Score -->
     <TextView
         android:id="@+id/resultText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Your Score: 0"
+        android:text="Your Score"
         android:textSize="24sp"
-        android:textStyle="bold"
-        android:padding="10dp"/>
-
-    <!-- Message based on performance -->
-    <TextView
-        android:id="@+id/messageText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Well done!"
-        android:textSize="18sp"
-        android:padding="10dp"/>
-
-    <!-- Home Button -->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/homeButton"
-        android:text="Go to Home"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"/>
+        android:textStyle="bold"/>
 </LinearLayout>

@@ -1,10 +1,24 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Light Theme -->
     <style name="Theme.VITQuizApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <item name="colorPrimary">#6200EE</item>
-        <item name="colorPrimaryVariant">#3700B3</item>
-        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorPrimary">#3F51B5</item>
+        <item name="colorPrimaryVariant">#303F9F</item>
+        <item name="colorAccent">#FF9800</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
     </style>
 
+    <!-- Custom Button Style -->
+    <style name="CustomButton">
+        <item name="android:backgroundTint">#4CAF50</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:padding">15dp</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <!-- Custom TextView Style -->
+    <style name="CustomTextView">
+        <item name="android:textColor">#333333</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>
