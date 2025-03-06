@@ -3,9 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="20dp"
-    android:gravity="center">
+    android:gravity="center"
+    android:padding="20dp">
 
+    <!-- Name Field -->
     <EditText
         android:id="@+id/signupName"
         android:layout_width="match_parent"
@@ -13,6 +14,7 @@
         android:hint="Enter Name"
         android:inputType="textPersonName"/>
 
+    <!-- Email Field -->
     <EditText
         android:id="@+id/signupEmail"
         android:layout_width="match_parent"
@@ -20,6 +22,7 @@
         android:hint="Enter Email"
         android:inputType="textEmailAddress"/>
 
+    <!-- Password Field -->
     <EditText
         android:id="@+id/signupPassword"
         android:layout_width="match_parent"
@@ -27,23 +30,12 @@
         android:hint="Enter Password"
         android:inputType="textPassword"/>
 
+    <!-- Signup Button -->
     <Button
-        android:id="@+id/signupStudentButton"
+        android:id="@+id/signupButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sign Up as Student"
-        android:backgroundTint="@color/blue"
-        android:textColor="@color/white"
-        android:layout_marginTop="10dp"/>
-
-    <TextView
-        android:id="@+id/loginRedirect"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Already have an account? Login here"
-        android:textColor="@color/black"
-        android:layout_marginTop="10dp"
-        android:clickable="true"
-        android:focusable="true"/>
-
+        android:text="Sign Up"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColor="@android:color/white"/>
 </LinearLayout>

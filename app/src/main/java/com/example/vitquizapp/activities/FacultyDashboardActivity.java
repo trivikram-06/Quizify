@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class FacultyDashboard extends AppCompatActivity {
+public class FacultyDashboardActivity extends AppCompatActivity {
     private Button createQuizButton, viewReportsButton;
 
     @Override
@@ -20,11 +20,11 @@ public class FacultyDashboard extends AppCompatActivity {
         viewReportsButton = findViewById(R.id.viewReportsButton);
 
         createQuizButton.setOnClickListener(v -> {
-            startActivity(new Intent(FacultyDashboard.this, CreateQuizActivity.class));
+            startActivity(new Intent(FacultyDashboardActivity.this, CreateQuizActivity.class));
         });
 
         viewReportsButton.setOnClickListener(v -> {
-            startActivity(new Intent(FacultyDashboard.this, ViewReportsActivity.class));
+            startActivity(new Intent(FacultyDashboardActivity.this, ViewReportsActivity.class));
         });
     }
 }

@@ -41,7 +41,13 @@
         <activity android:name=".activities.ResultActivity" android:exported="false"/>
         <activity android:name=".activities.FacultyDashboard" android:exported="false"/>
         <activity android:name=".activities.CreateQuizActivity" android:exported="false"/>
+        <activity android:name=".activities.StudentLoginActivity" android:exported="true"/>
         <activity android:name=".activities.ViewReportsActivity" android:exported="false"/>
+        <activity android:name=".activities.StudentDashboardActivity" android:exported="false"/>
+        <activity android:name=".activities.FacultyLoginActivity" android:exported="true"/>
+        <activity android:name=".activities.StudentSignupActivity" />
+        <activity android:name=".activities.FacultySignupActivity" android:exported="true"/>
+        <activity android:name=".activities.FacultyDashboardActivity"/>
 
     </application>
 </manifest>

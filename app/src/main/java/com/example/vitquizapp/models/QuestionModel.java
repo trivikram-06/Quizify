@@ -1,5 +1,4 @@
 package com.example.vitquizapp.models;
-
 import java.util.List;
 
 public class QuestionModel {
@@ -7,9 +6,8 @@ public class QuestionModel {
     private List<String> options;
     private String correctOption;
 
-    // Empty constructor for Firestore
-    public QuestionModel() {
-    }
+    // Empty constructor for Firebase
+    public QuestionModel() {}
 
     public QuestionModel(String questionText, List<String> options, String correctOption) {
         this.questionText = questionText;

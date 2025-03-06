@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class StudentSignupActivity extends AppCompatActivity {
-    private EditText signupName, signupEmail, signupPassword;
+    private EditText nameInput, emailInput, passwordInput;
     private Button signupButton;
     private FirebaseAuth auth;
     private FirebaseFirestore db;
@@ -26,36 +26,49 @@ public class StudentSignupActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
 
-        signupName = findViewById(R.id.signupName);
-        signupEmail = findViewById(R.id.signupEmail);
-        signupPassword = findViewById(R.id.signupPassword);
+        nameInput = findViewById(R.id.signupName);
+        emailInput = findViewById(R.id.signupEmail);
+        passwordInput = findViewById(R.id.signupPassword);
         signupButton = findViewById(R.id.signupButton);
 
-        signupButton.setOnClickListener(v -> registerUser());
+        signupButton.setOnClickListener(v -> registerStudent());
     }
 
-    private void registerUser() {
-        String name = signupName.getText().toString();
-        String email = signupEmail.getText().toString();
-        String password = signupPassword.getText().toString();
+    private void registerStudent() {
+        String name = nameInput.getText().toString().trim();
+        String email = emailInput.getText().toString().trim();
+        String password = passwordInput.getText().toString().trim();
 
         if (name.isEmpty() || email.isEmpty() || password.isEmpty()) {
-            Toast.makeText(this, "All fields are required!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        auth.createUserWithEmailAndPassword(email, password).addOnSuccessListener(authResult -> {
-            Map<String, Object> user = new HashMap<>();
-            user.put("name", name);
-            user.put("email", email);
-            user.put("role", "student");
+        auth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        String userId = auth.getCurrentUser().getUid();
 
-            db.collection("users").document(auth.getCurrentUser().getUid())
-                    .set(user).addOnSuccessListener(aVoid -> {
-                        Toast.makeText(this, "Student Registered!", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(StudentSignupActivity.this, LoginActivity.class));
-                        finish();
-                    });
-        }).addOnFailureListener(e -> Toast.makeText(this, "Signup Failed!", Toast.LENGTH_SHORT).show());
+                        // ✅ Save student details in Firestore
+                        Map<String, Object> student = new HashMap<>();
+                        student.put("name", name);
+                        student.put("email", email);
+
+                        db.collection("users").document("students")
+                                .collection("studentAccounts")
+                                .document(userId)
+                                .set(student)
+                                .addOnSuccessListener(aVoid -> {
+                                    Toast.makeText(this, "Signup Successful!", Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(this, StudentLoginActivity.class));
+                                    finish();
+                                })
+                                .addOnFailureListener(e -> {
+                                    Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                });
+                    } else {
+                        Toast.makeText(this, "Signup Failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 }
