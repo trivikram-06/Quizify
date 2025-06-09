@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/white">
+
+    <!-- Question Input -->
+    <EditText
+        android:id="@+id/edtQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Question"
+        android:padding="10dp"
+        android:background="@android:drawable/editbox_background"
+        android:layout_marginBottom="10dp"/>
+
+    <!-- Option A -->
+    <EditText
+        android:id="@+id/edtOptionA"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Option A"
+        android:padding="10dp"
+        android:background="@android:drawable/editbox_background"
+        android:layout_marginBottom="10dp"/>
+
+    <!-- Option B -->
+    <EditText
+        android:id="@+id/edtOptionB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Option B"
+        android:padding="10dp"
+        android:background="@android:drawable/editbox_background"
+        android:layout_marginBottom="10dp"/>
+
+    <!-- Option C -->
+    <EditText
+        android:id="@+id/edtOptionC"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Option C"
+        android:padding="10dp"
+        android:background="@android:drawable/editbox_background"
+        android:layout_marginBottom="10dp"/>
+
+    <!-- Option D -->
+    <EditText
+        android:id="@+id/edtOptionD"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Option D"
+        android:padding="10dp"
+        android:background="@android:drawable/editbox_background"
+        android:layout_marginBottom="10dp"/>
+
+    <!-- Correct Answer -->
+    <EditText
+        android:id="@+id/edtCorrectAnswer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Correct Answer (A/B/C/D)"
+        android:padding="10dp"
+        android:background="@android:drawable/editbox_background"
+        android:layout_marginBottom="20dp"/>
+
+    <!-- Save Question Button -->
+    <Button
+        android:id="@+id/btnSaveQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save Question"
+        android:backgroundTint="@color/teal_700"
+        android:textColor="@android:color/white"
+        android:padding="12dp"/>
+
+</LinearLayout>

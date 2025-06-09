@@ -1,36 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="20dp">
+    android:background="#F0F4F8">
 
-    <!-- Student Signup Button -->
-    <Button
-        android:id="@+id/studentLoginBtn"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Login as Student"
-        android:layout_marginBottom="10dp"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="24dp"
+        android:minHeight="600dp"> <!-- to help on small devices -->
 
-    <Button
-        android:id="@+id/facultyLoginBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Login as Faculty"
-        android:layout_marginBottom="10dp"/>
+        <!-- App Title -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome to Quizify"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#2C3E50"
+            android:layout_marginBottom="30dp"
+            android:gravity="center" />
 
-    <Button
-        android:id="@+id/studentSignupBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Signup as Student"
-        android:layout_marginBottom="10dp"/>
+        <!-- User Selection -->
+        <Button
+            android:id="@+id/btnStudent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Student"
+            android:backgroundTint="#3498DB"
+            android:textColor="#FFFFFF"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp" />
 
-    <Button
-        android:id="@+id/facultySignupBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Signup as Faculty"/>
-</LinearLayout>
+        <Button
+            android:id="@+id/btnFaculty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Faculty"
+            android:backgroundTint="#2ECC71"
+            android:textColor="#FFFFFF"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:layout_marginTop="12dp" />
+
+        <!-- Student Options -->
+        <LinearLayout
+            android:id="@+id/studentOptions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_marginTop="24dp">
+
+            <Button
+                android:id="@+id/btnStudentLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Login as Student"
+                android:backgroundTint="#2980B9"
+                android:textColor="#FFFFFF"
+                android:padding="10dp"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/btnStudentSignup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Signup as Student"
+                android:backgroundTint="#2980B9"
+                android:textColor="#FFFFFF"
+                android:padding="10dp"
+                android:textSize="15sp"
+                android:layout_marginTop="10dp" />
+        </LinearLayout>
+
+        <!-- Faculty Options -->
+        <LinearLayout
+            android:id="@+id/facultyOptions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_marginTop="24dp">
+
+            <Button
+                android:id="@+id/btnFacultyLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Login as Faculty"
+                android:backgroundTint="#27AE60"
+                android:textColor="#FFFFFF"
+                android:padding="10dp"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/btnFacultySignup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Signup as Faculty"
+                android:backgroundTint="#27AE60"
+                android:textColor="#FFFFFF"
+                android:padding="10dp"
+                android:textSize="15sp"
+                android:layout_marginTop="10dp" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

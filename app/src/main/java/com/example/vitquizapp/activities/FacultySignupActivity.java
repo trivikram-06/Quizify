@@ -11,6 +11,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
+import android.widget.TextView;
 
 public class FacultySignupActivity extends AppCompatActivity {
     private EditText facultyName, facultyEmail, facultyPassword;
@@ -32,6 +33,13 @@ public class FacultySignupActivity extends AppCompatActivity {
         facultySignupButton = findViewById(R.id.facultySignupButton);
 
         facultySignupButton.setOnClickListener(v -> registerFaculty());
+        TextView loginRedirect = findViewById(R.id.facultyLoginRedirect);
+        loginRedirect.setOnClickListener(view -> {
+            Intent intent = new Intent(FacultySignupActivity.this, FacultyLoginActivity.class);
+            startActivity(intent);
+            finish();
+        });
+
     }
 
     private void registerFaculty() {

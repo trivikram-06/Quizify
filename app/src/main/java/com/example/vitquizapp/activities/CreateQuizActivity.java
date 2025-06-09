@@ -1,51 +1,78 @@
 package com.example.vitquizapp.activities;
-import com.example.vitquizapp.R;
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TimePicker;
 import android.widget.Toast;
-import com.google.android.material.textfield.TextInputEditText;
-import com.google.firebase.firestore.FirebaseFirestore;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.vitquizapp.R;
+
+import java.util.Calendar;
 
 public class CreateQuizActivity extends AppCompatActivity {
-    private TextInputEditText questionInput, option1, option2, option3, option4, correctAnswer;
-    private Button addQuestionButton;
-    private FirebaseFirestore db;
+
+    private EditText courseName, facultyName, startTime, endTime;
+    private Button btnNext;
+    private Calendar calendar;
+    private String start, end;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_quiz);
 
-        questionInput = findViewById(R.id.questionInput);
-        option1 = findViewById(R.id.option1);
-        option2 = findViewById(R.id.option2);
-        option3 = findViewById(R.id.option3);
-        option4 = findViewById(R.id.option4);
-        correctAnswer = findViewById(R.id.correctAnswer);
-        addQuestionButton = findViewById(R.id.addQuestionButton);
+        // Initialize UI Elements
+        courseName = findViewById(R.id.courseName);
+        facultyName = findViewById(R.id.facultyName);
+        startTime = findViewById(R.id.startTime);
+        endTime = findViewById(R.id.endTime);
+        btnNext = findViewById(R.id.btnNext);
 
-        db = FirebaseFirestore.getInstance();
+        // Time Picker for Start Time
+        startTime.setOnClickListener(v -> showTimePicker(true));
+        endTime.setOnClickListener(v -> showTimePicker(false));
 
-        addQuestionButton.setOnClickListener(v -> addQuestionToFirebase());
+        // Next Button Click
+        btnNext.setOnClickListener(v -> {
+            String course = courseName.getText().toString().trim();
+            String faculty = facultyName.getText().toString().trim();
+
+            if (course.isEmpty() || faculty.isEmpty() || start == null || end == null) {
+                Toast.makeText(CreateQuizActivity.this, "All fields are required!", Toast.LENGTH_SHORT).show();
+            } else {
+                // Move to AddQuestionsActivity
+                Intent intent = new Intent(CreateQuizActivity.this, AddQuestionsActivity.class);
+                intent.putExtra("courseName", course);
+                intent.putExtra("facultyName", faculty);
+                intent.putExtra("startTime", start);
+                intent.putExtra("endTime", end);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
-    private void addQuestionToFirebase() {
-        String questionText = questionInput.getText().toString();
-        String correctOption = correctAnswer.getText().toString();
-        Map<String, Object> question = new HashMap<>();
-        question.put("questionText", questionText);
-        question.put("options", Arrays.asList(option1.getText().toString(), option2.getText().toString(), option3.getText().toString(), option4.getText().toString()));
-        question.put("correctOption", correctOption);
+    private void showTimePicker(boolean isStartTime) {
+        calendar = Calendar.getInstance();
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        int minute = calendar.get(Calendar.MINUTE);
 
-        db.collection("quizzes").document("quizID1").collection("questions")
-                .add(question)
-                .addOnSuccessListener(documentReference -> Toast.makeText(CreateQuizActivity.this, "Question Added!", Toast.LENGTH_SHORT).show())
-                .addOnFailureListener(e -> Toast.makeText(CreateQuizActivity.this, "Failed to Add Question!", Toast.LENGTH_SHORT).show());
+        TimePickerDialog timePicker = new TimePickerDialog(this, (view, hourOfDay, minute1) -> {
+            String time = hourOfDay + ":" + (minute1 < 10 ? "0" + minute1 : minute1);
+            if (isStartTime) {
+                start = time;
+                startTime.setText(time);
+            } else {
+                end = time;
+                endTime.setText(time);
+            }
+        }, hour, minute, true);
+        timePicker.show();
     }
 }

@@ -10,6 +10,7 @@ import com.example.vitquizapp.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import android.widget.TextView;
 
 public class FacultyLoginActivity extends AppCompatActivity {
     private EditText facultyEmail, facultyPassword;
@@ -30,6 +31,13 @@ public class FacultyLoginActivity extends AppCompatActivity {
         facultyLoginButton = findViewById(R.id.facultyLoginButton);
 
         facultyLoginButton.setOnClickListener(v -> loginFaculty());
+        TextView facultySignupRedirect = findViewById(R.id.facultySignupRedirect);
+
+        facultySignupRedirect.setOnClickListener(v -> {
+            Intent intent = new Intent(FacultyLoginActivity.this, FacultySignupActivity.class);
+            startActivity(intent);
+        });
+
     }
 
     private void loginFaculty() {

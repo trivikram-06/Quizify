@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <!-- 🔹 Display Quiz Summary -->
+        <TextView
+            android:id="@+id/txtQuizSummary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Quiz Details"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:padding="10dp"
+            android:background="#EEEEEE"
+            android:layout_marginBottom="20dp"
+            android:gravity="center" />
+
+        <!-- ➕ Add Question Button -->
+        <Button
+            android:id="@+id/btnAddQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Questions"
+            android:layout_marginBottom="16dp"
+            android:padding="12dp" />
+
+        <!-- ✅ Publish Quiz Button -->
+        <Button
+            android:id="@+id/btnPublishQuiz"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Publish Quiz"
+            android:padding="12dp" />
+
+    </LinearLayout>
+</ScrollView>

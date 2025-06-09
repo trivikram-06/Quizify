@@ -63,12 +63,12 @@
         android:layout_height="wrap_content"
         android:text="Sign Up"
         android:textSize="18sp"
-        android:backgroundTint="@color/purple_500"
+        android:backgroundTint="@color/teal_700"
         android:textColor="@color/white"
         android:layout_marginTop="20dp"/>
 
     <!-- 🔥 Fix: Added Faculty Login Redirect -->
-    <Button
+    <TextView
         android:id="@+id/facultyLoginRedirect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

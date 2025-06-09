@@ -53,18 +53,22 @@
         android:layout_height="wrap_content"
         android:text="Login"
         android:textSize="18sp"
-        android:backgroundTint="@color/purple_500"
+        android:backgroundTint="@color/teal_700"
         android:textColor="@color/white"
         android:layout_marginTop="20dp"/>
+
 
     <TextView
         android:id="@+id/facultySignupRedirect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Don't have an account? Sign Up"
-        android:textSize="16sp"
-        android:textColor="@color/black"
-        android:layout_marginTop="10dp"
+        android:text="Don't have an account? Sign up"
+        android:textColor="@color/purple_500"
+        android:textSize="14sp"
+        android:layout_gravity="center"
+        android:paddingTop="16dp"
         android:clickable="true"
-        android:focusable="true"/>
+        android:focusable="true" />
+
+
 </LinearLayout>

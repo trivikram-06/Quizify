@@ -47,30 +47,36 @@ public class StudentLoginActivity extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         FirebaseUser user = auth.getCurrentUser();
                         if (user != null) {
-                            String userId = user.getUid();
-
-                            // ✅ Check if student exists in Firestore
-                            DocumentReference docRef = db.collection("users")
-                                    .document("students")
-                                    .collection("studentAccounts")
-                                    .document(userId);
-
-                            docRef.get().addOnSuccessListener(documentSnapshot -> {
-                                if (documentSnapshot.exists()) {
-                                    Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show();
-                                    startActivity(new Intent(this, QuizListActivity.class));
-                                    finish();
-                                } else {
-                                    Toast.makeText(this, "Student account not found!", Toast.LENGTH_SHORT).show();
-                                    auth.signOut();
-                                }
-                            }).addOnFailureListener(e -> {
-                                Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                            });
+                            checkStudentAccount(user.getUid());
                         }
                     } else {
                         Toast.makeText(this, "Login Failed! Check Email & Password", Toast.LENGTH_SHORT).show();
                     }
                 });
+    }
+
+    private void checkStudentAccount(String userId) {
+        DocumentReference docRef = db.collection("users")
+                .document("students")
+                .collection("studentAccounts")
+                .document(userId);
+
+        docRef.get().addOnSuccessListener(documentSnapshot -> {
+            if (documentSnapshot.exists()) {
+                Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show();
+
+                // 🔥 FIX: Ensure only one instance of QuizListActivity is created
+                Intent intent = new Intent(StudentLoginActivity.this, QuizListActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+
+                finish(); // Close the login activity
+            } else {
+                Toast.makeText(this, "Student account not found!", Toast.LENGTH_SHORT).show();
+                auth.signOut(); // Logout if not a student
+            }
+        }).addOnFailureListener(e -> {
+            Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+        });
     }
 }
